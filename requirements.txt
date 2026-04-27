@@ -1,0 +1,12 @@
+streamlit
+pandas
+plotly
+scikit-learn
+xgboost
+joblib
+numpy
+python-dotenv
+apscheduler
+requests
+beautifulsoup4
+matplotlib
