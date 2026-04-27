@@ -6,6 +6,23 @@ import os
 from datetime import datetime
 import numpy as np
 
+
+if not os.path.exists('data/price_history.csv'):
+    os.makedirs('data', exist_ok=True)
+    dates = [datetime.now() - timedelta(days=i) for i in range(60)]
+    dates.reverse()
+    base_price = 899
+    prices = []
+    for i in range(60):
+        base_price = max(600, min(1200, base_price + np.random.randint(-40, 40)))
+        prices.append(base_price)
+    pd.DataFrame({
+        'timestamp': dates,
+        'name': 'Noise ColorFit Pro 4 Smartwatch',
+        'price': prices,
+        'url': 'test'
+    }).to_csv('data/price_history.csv', index=False)
+     
 st.set_page_config(
     page_title="Price Drop Alert System",
     page_icon="💰",
